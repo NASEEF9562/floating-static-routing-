@@ -1,0 +1,14 @@
+Floating static routing is a type of static routing in which a static route is configured with a higher administrative distance than the primary route, making it act as a backup. Typically, routers choose paths based on the lowest administrative distance (AD). By setting a higher AD for the floating static route, it will only be used when the primary route is unavailable, ensuring redundancy in the network.
+
+Here's how it works:
+
+Configuration:
+A floating static route is set with an AD higher than the default static route (often set at 1), allowing the router to prioritize the primary route with the lower AD.
+
+Activation:
+If the primary route fails (e.g., due to link or device failure), the floating static route becomes active, as it now has the lowest available AD for reaching the destination.
+
+Failover and Recovery:
+When the primary route is restored, it resumes its role as the preferred path, and the router deactivates the floating static route, reverting to the more efficient primary route.
+
+Floating static routes are commonly used to add resilience in network design, especially for critical links or paths where redundancy is needed but dynamic routing protocols may not be feasible or necessary.
